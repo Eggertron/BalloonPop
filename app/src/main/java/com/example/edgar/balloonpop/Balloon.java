@@ -15,9 +15,10 @@ public class Balloon {
     private int x, y, speed, minY, maxY, minX, maxX;
     private Random random;
 
-    public Balloon(Context context, int screenX, int screenY) {
+    public Balloon(Context context, int screenX, int screenY, Bitmap bitmap) {
         random = new Random();
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
+        //bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
+        this.bitmap = bitmap;
         minY = 0;
         maxY = screenY;
         minX = 0;
