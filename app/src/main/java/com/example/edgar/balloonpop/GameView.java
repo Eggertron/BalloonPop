@@ -109,9 +109,10 @@ public class GameView extends SurfaceView implements Runnable {
                 //player.stopBoosting();
                 break;
             case MotionEvent.ACTION_DOWN:
+                System.out.println("touched: "+x+", "+y);
                 for (Balloon balloon : balloons) {
                     if (x > balloon.getX() && x < balloon.getX() + balloon.getBitmap().getWidth() &&
-                            y < balloon.getY() && y > balloon.getX() + balloon.getBitmap().getHeight()) {
+                            y > balloon.getY() && y < balloon.getY() + balloon.getBitmap().getHeight()) {
                         balloon.init();
                     }
                 }
