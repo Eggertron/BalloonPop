@@ -3,6 +3,7 @@ package com.example.edgar.balloonpop;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.view.View;
 
 import java.util.Random;
 
@@ -10,7 +11,7 @@ import java.util.Random;
  * Created by edgar on 8/21/17.
  */
 
-public class Balloon {
+public class Balloon implements View.OnClickListener {
     private Bitmap bitmap;
     private int x, y, speed, minY, maxY, minX, maxX;
     private Random random;
@@ -34,7 +35,7 @@ public class Balloon {
         }
     }
 
-    private void init() {
+    public void init() {
         y = maxY;
         x = random.nextInt(maxX);
     }
@@ -49,5 +50,10 @@ public class Balloon {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

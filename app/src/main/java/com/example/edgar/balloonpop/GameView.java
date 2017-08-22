@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -100,12 +101,20 @@ public class GameView extends SurfaceView implements Runnable {
 
     @Override
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        float x = motionEvent.getX();
+        float y = motionEvent.getY();
+
         switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_UP:
                 //player.stopBoosting();
                 break;
             case MotionEvent.ACTION_DOWN:
-                //player.setBoosting();
+                for (Balloon balloon : balloons) {
+                    if (x > balloon.getX() && x < balloon.getX() + balloon.getBitmap().getWidth() &&
+                            y < balloon.getY() && y > balloon.getX() + balloon.getBitmap().getHeight()) {
+                        balloon.init();
+                    }
+                }
                 break;
         }
         return true;
