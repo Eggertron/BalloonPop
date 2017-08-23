@@ -9,7 +9,6 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ public class GameView extends SurfaceView implements Runnable {
 
         balloons = new ArrayList<Balloon>();
         for (int i = 0; i < ballonsCount; i++) {
-            balloons.add(new Balloon(context, screenX, screenY, balloonBitmap));
+            balloons.add(new Balloon(context, screenX, screenY));
         }
         playing = true;
     }

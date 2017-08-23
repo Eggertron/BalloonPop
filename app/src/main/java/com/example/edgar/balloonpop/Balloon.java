@@ -16,10 +16,10 @@ public class Balloon implements View.OnClickListener {
     private int x, y, speed, minY, maxY, minX, maxX;
     private Random random;
 
-    public Balloon(Context context, int screenX, int screenY, Bitmap bitmap) {
+    public Balloon(Context context, int screenX, int screenY) {
         random = new Random();
         //bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
-        this.bitmap = bitmap;
+        bitmap = Assets.balloon_red;
         minY = 0;
         maxY = screenY;
         minX = 0;
