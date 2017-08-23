@@ -10,8 +10,15 @@ import android.graphics.BitmapFactory;
 
 public class Assets {
     public static Bitmap balloon_red;
+    public static Bitmap balloon_orange;
+    public static Bitmap balloon_blue;
+    public static Bitmap balloon_green;
+
 
     public static void load(Context context) {
         balloon_red = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
+        balloon_orange = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_orange);
+        balloon_blue = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_blue);
+        balloon_green = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_green);
     }
 }

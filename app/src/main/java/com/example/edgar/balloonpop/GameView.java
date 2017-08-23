@@ -1,8 +1,6 @@
 package com.example.edgar.balloonpop;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -24,19 +22,17 @@ public class GameView extends SurfaceView implements Runnable {
     private Canvas canvas;
     private SurfaceHolder surfaceHolder;
     private ArrayList<Balloon> balloons;
-    private final int ballonsCount = 60;
-    protected Bitmap balloonBitmap;
+    private final int ballonsCount = 10;
 
     public GameView(Context context, int screenX, int screenY) {
         super(context);
 
         surfaceHolder = getHolder();
         paint = new Paint();
-        balloonBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
 
         balloons = new ArrayList<Balloon>();
         for (int i = 0; i < ballonsCount; i++) {
-            balloons.add(new Balloon(context, screenX, screenY));
+            balloons.add(new Balloon(screenX, screenY));
         }
         playing = true;
     }

@@ -1,8 +1,6 @@
 package com.example.edgar.balloonpop;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.View;
 
 import java.util.Random;
@@ -16,28 +14,35 @@ public class Balloon implements View.OnClickListener {
     private int x, y, speed, minY, maxY, minX, maxX;
     private Random random;
 
-    public Balloon(Context context, int screenX, int screenY) {
+    public Balloon(int screenX, int screenY) {
         random = new Random();
-        //bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.balloon_red);
-        bitmap = Assets.balloon_red;
-        minY = 0;
         maxY = screenY;
         minX = 0;
-        maxX = screenX - bitmap.getWidth();
-        speed = random.nextInt(10) + 1;
+        maxX = screenX;
         init();
     }
 
     public void update() {
         y -= speed;
-        if (y < 0) {
+        if (y < minY) {
             init();
         }
     }
 
     public void init() {
+        switch (random.nextInt(4)) {
+            case 0: bitmap = Assets.balloon_red;
+                break;
+            case 1: bitmap = Assets.balloon_blue;
+                break;
+            case 2: bitmap = Assets.balloon_green;
+                break;
+            case 3: bitmap = Assets.balloon_orange;
+        }
+        minY = 0 - bitmap.getHeight();
+        speed = random.nextInt(5) + 5;
         y = maxY;
-        x = random.nextInt(maxX);
+        x = random.nextInt(maxX - bitmap.getWidth());
     }
 
     public Bitmap getBitmap() {
